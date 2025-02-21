@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+    struct student_info
+    {
+        long roll_no;
+        char name[20];
+    };
+    struct student_info s[20];
+    int i, a;
+    printf("ENTER THE NUMBER OF STUDENT\n");
+    scanf("%d", &a);
+    printf("ENTER THE INFORMATION OF %d STUDENT \n", a);
+
+    for (i = 0; i < a; i++)
+    {
+        printf("ENTER YOUR ROLL NO=\n");
+        scanf("%d", &s[i].roll_no);
+        printf("ENTER YOUR NAME \n");
+        scanf("%s", s[i].name);
+    }
+    printf("YOUR DATA IS");
+
+    for (i = 0; i < a; i++)
+    {
+        printf("roll no : %d\n", s[i].roll_no);
+        printf("name : %s\n", s[i].name);
+    }
+    int n;
+    printf("at witch position you want to delete information \n");
+    scanf("%d", &n);
+
+    for (i = n; i < a; i++)
+    {
+        s[i].roll_no = s[i + 1].roll_no;
+        strcpy(s[i].name, s[i + 1].name);
+    }
+    printf("Your Modified information is : \n");
+
+    for (i = 0; i < a - 1; i++)
+    {
+        printf("%d)\n", i);
+
+        printf("roll no : %d\n", s[i].roll_no);
+        printf("name : %s\n", s[i].name);
+    }
+    return 0;
+}
